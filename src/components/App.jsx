@@ -1,11 +1,11 @@
-import css from './StyleContainer.module.css'
+import css from './StyleContainer.module.css';
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactForm/ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
-
-
-export class App extends Component  {
+export class App extends Component {
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -54,15 +54,19 @@ export class App extends Component  {
     return filterContactsList;
   };
 
-
-
   render() {
+    const { filter } = this.state;
     return (
-      <div className = {css.container}>
+      <div className={css.container}>
         <h1>Phonebook</h1>
         <ContactForm handleSubmit={this.handleSubmit} />
+        <h2> Contacts</h2>
+        <Filter filter={filter} handleChange={this.handleChange} />
+        <ContactList
+          contacts={this.getFilteredContacts()}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }
- 
-};
+}

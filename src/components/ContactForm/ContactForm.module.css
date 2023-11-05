@@ -1,6 +1,10 @@
 .form {
   display: flex;
   flex-direction: column;
+  border: 2px solid black;
+  padding: 30px;
+  border-radius: 10%;
+  background-color: aqua;
 }
 
 .formName,
@@ -36,6 +40,6 @@
   cursor: pointer;
 }
 .formLabel {
-    font-size: 30px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-size: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
