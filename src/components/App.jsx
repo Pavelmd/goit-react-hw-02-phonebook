@@ -14,8 +14,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   handleChange = e => {
@@ -38,11 +36,18 @@ export class App extends Component {
     this.setState({ contacts: contactsLists });
   };
 
-  handleDelete = e => {
+  handleDelete = contactId => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== e),
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
+
+
+  // handleDelete = e => {
+  //   this.setState(prevState => ({
+  //     contacts: prevState.contacts.filter(contact => contact.id !== e),
+  //   }));
+  // };
 
   getFilteredContacts = () => {
     const filterContactsList = this.state.contacts.filter(contact => {
